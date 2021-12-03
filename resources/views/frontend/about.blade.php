@@ -48,7 +48,7 @@
                                 <div class="post-content">
                                     <p>Registered in Pakistan, This website is about investment and in return of that investment a hope. A hope to get you approximately 4000% of your investment which we call as hopee. We assure you that we will not let even a single penny of your be wasted. In this investment site even if you don't win a hopee you get 79% of your invested amount back. We use Jazzcash payment system to make payments. For more info kindly revert to Instruction section.</p>
                                     <h4>Creator of the scheme:</h4>
-                                    <p>My name is Muhammad Fawad Ur Rehman. I study in Comsats University Lahore Campus. In case you have any query or any problem regarding this scheme you can contact me directly through the number given in the site. I personally assure you you will have a good experience by investing in our scheme. I wish you best of luck and look forward to work with you.</p>
+                                    <p>This is Umer Farroq and Fawad-Ur-Rehman. This project is our Final year Project and we have been working on it for last 1-2 years now. We initially had the idea of lucky draw module and we started developing it quite while ago. We personally assure you that you will have a good experience by investing in our scheme. Wish you best of luck and look forward to work with all of you</p>
 {{--                                    <blockquote class="fancy-blockquote">--}}
 {{--                                        <span class="quote playfair-font">“</span>--}}
 {{--                                        <h5 class="mb-4">“If you’re going to try, go all the way. There is no other feeling like that. You will be alone with the gods, and the nights will flame with fire. You will ride life straight to perfect laughter. It’s the only good fight there is.”</h5>--}}
@@ -56,7 +56,7 @@
 {{--                                    </blockquote>--}}
                                 </div>
                                 <div class="post-thumb">
-                                    <img src="{{asset('frontend/img/fawadabout.webp')}}" alt="">
+                                    <img src="{{asset('frontend/img/umer-fawad.jpg')}}" alt="">
                                 </div>
                             </div>
                         </div>

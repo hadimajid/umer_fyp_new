@@ -38,10 +38,10 @@
                             <h2>Contact Us</h2>
                             <p>There are many ways to contact us. You may drop us a line, give us a call or send an email, choose what suits you the most.</p>
                         </div>
-                        <p>+92347-5500987 <br>Fawadlang@gmail.com
-                        </p>
-                        <p>Muhammad Fawad Ur Rehman
-                        </p>
+                        <p>+92347-5500987 <br>Fawadlang@gmail.com</p>
+                        <p>Muhammad Fawad Ur Rehman</p>
+                        <p>+9216-4643920 <br>iumersocial@gmail.com</p>
+                        <p>Umer Farooq</p>
                     </div>
                     <!-- Follow Us -->
                     <div class="follow-us-area">

@@ -264,13 +264,13 @@
                         <div class="single-testimonial d-md-flex align-items-center">
                             <!-- Testimonial Thumb -->
                             <div class="testimonial-thumbnail">
-                                <img src="{{asset('frontend/img/fawadquote.webp')}}" alt="">
+                                <img src="{{asset('frontend/img/umer.jpg')}}" alt="">
                             </div>
                             <!-- Content -->
                             <div class="testimonilas-content">
                                 <span class="playfair-font quote">“</span>
                                 <h5>Take up one idea. Make that one idea your life - think of it, dream of it, live on that idea. Let the brain, muscles, nerves, every part of your body, be full of that idea, and just leave every other idea alone. This is the way to success.</h5>
-                                <h6>M.Fawad Ur Rehman <span>CEO WeGiveHopee</span></h6>
+                                <h6>Umer Farooq <span>CEO WeGiveHopee</span></h6>
                             </div>
                         </div>
                     </div>

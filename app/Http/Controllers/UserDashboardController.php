@@ -289,22 +289,22 @@ class UserDashboardController extends Controller
         if($request->hasFile('cnic_front')){
             $cnicFront=$request->file('cnic_front');
             $cnicFrontName=$user->username.date('dmY')."cnic_front.".$cnicFront->getClientOriginalExtension();
-            $cnicFront->move(public_path('kameeti'),$cnicFrontName);
+            $cnicFront->move(public_path('kameetiUpload'),$cnicFrontName);
         }
         if($request->hasFile('cnic_back')){
             $cnicBack=$request->file('cnic_back');
             $cnicBackName=$user->username.date('dmY')."cnic_back.".$cnicBack->getClientOriginalExtension();
-            $cnicBack->move(public_path('kameeti'),$cnicBackName);
+            $cnicBack->move(public_path('kameetiUpload'),$cnicBackName);
         }
         if($request->hasFile('signature')){
             $signature=$request->file('signature');
             $signatureName=$user->username.date('dmY')."signature.".$signature->getClientOriginalExtension();
-            $signature->move(public_path('kameeti'),$signatureName);
+            $signature->move(public_path('kameetiUpload'),$signatureName);
         }
         $kameeti->users()->attach($user->id,[
-            'cnic_front'=>asset("kameeti/".$cnicFrontName),
-            'cnic_back'=>asset("kameeti/".$cnicBackName),
-            'signature'=>asset("kameeti/".$signatureName),
+            'cnic_front'=>asset("kameetiUpload/".$cnicFrontName),
+            'cnic_back'=>asset("kameetiUpload/".$cnicBackName),
+            'signature'=>asset("kameetiUpload/".$signatureName),
         ]);
             return redirect()->back()->with('success',"Kameeti will get register after verification.");
 
