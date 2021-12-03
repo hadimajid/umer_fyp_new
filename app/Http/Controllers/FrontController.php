@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Feedback;
 use App\Hopeewinner;
+use App\Mail\ContactUs;
 use App\Set;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class FrontController extends Controller
 {
@@ -52,5 +54,22 @@ class FrontController extends Controller
     {
         $feeds = Feedback::all()->where('set_id',null);
         return view('frontend.feedback',compact('feeds'));
+    }
+    public function contactUs(Request $request){
+        $validateData=$request->validate([
+           'name'=>'required',
+           'email'=>'required|email',
+           'message'=>'required',
+        ]);
+
+        try {
+            Mail::send(new ContactUs($validateData));
+            return redirect()->back()->with("success","We will contact you shortly.");
+
+        }catch (\Exception $err){
+//            dd($err);
+            return redirect()->back()->with("danger","Some error has occurred");
+
+        }
     }
 }

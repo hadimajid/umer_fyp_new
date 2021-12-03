@@ -51,6 +51,7 @@ Route::get('/about-us', 'FrontController@about')->name('front.about');
 Route::get('/latest', 'FrontController@latest')->name('front.latest');
 Route::get('/feedbacks', 'FrontController@feedbacks')->name('front.feedbacks');
 Route::get('/contact-us', 'FrontController@contact')->name('front.contact');
+Route::post('/contact-us', 'FrontController@contactUs');
 
 Route::get('/admin-image/{set}', 'AdminDashboardController@image')->name('admin.image');
 Route::get('/admin-login', 'admin\Auth\LoginController@showLoginForm')->name('admin.login');

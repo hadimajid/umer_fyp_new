@@ -60,7 +60,24 @@
                             <p>Fill out the form below to recieve a free and confidential.</p>
                         </div>
                         <div class="contact-form">
-                            <form action="#" method="post">
+                            @if (\Session::has('success'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    {!! \Session::get('success') !!}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @endif
+                            @if (\Session::has('danger'))
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    {!! \Session::get('danger') !!}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @endif
+                            <form action="{{route("front.contact")}}" method="post">
+                                @csrf
                                 <!-- Message Input Area Start -->
                                 <div class="contact_input_area">
                                     <div class="row">
@@ -68,18 +85,27 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
+                                                @error("name")
+                                                <label for="" class="error">{{$message}}</label>
+                                                @enderror
                                             </div>
                                         </div>
                                         <!-- Single Input Area -->
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+                                                @error("email")
+                                                <label for="" class="error">{{$message}}</label>
+                                                @enderror
                                             </div>
                                         </div>
                                         <!-- Single Input Area -->
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Messages" required></textarea>
+                                                @error("message")
+                                                <label for="" class="error">{{$message}}</label>
+                                                @enderror
                                             </div>
                                         </div>
                                         <!-- Single Input Area -->
