@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //
-//Route::post('/rating/new','FeedbackController@setRating')->name('setrating');
-//Route::get('/rating','FeedbackController@getRating')->name('getrating');
+Route::post('/rating/new','FeedbackController@setRating')->name('setrating');
+Route::get('/rating','FeedbackController@getRating')->name('getrating');
 //
 //Route::get('/', 'FrontController@index')->name('front.index');
 //Route::get('/about-us', 'FrontController@about')->name('front.about');
