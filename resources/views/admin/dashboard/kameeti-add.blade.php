@@ -88,7 +88,7 @@
                                                             <label for="">
                                                                 Kameeti Amount
                                                             </label>
-                                                            <input type="number" class="form-control" name="amount" id="amount" required disabled>
+                                                            <input type="number" class="form-control" name="amount" id="amount" required readonly>
                                                             @error('amount')
                                                             <label for="" style="color: red">{{$message}}</label>
                                                             @enderror
