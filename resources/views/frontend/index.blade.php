@@ -25,7 +25,7 @@
                         <h2><small>Think we are scam? Check our:</small></h2>
                         @if(auth()->guard('web')->check())
                         <a href="{{route('user.kameeti')}}" class="btn fancy-btn fancy-active" style="font-size: 12px">Kameeti</a>
-                        <a href="{{route('front.latest')}}" class="btn fancy-btn fancy-active" style="font-size: 12px">Loan Management</a>
+                        <a href="{{route('user.loan')}}" class="btn fancy-btn fancy-active" style="font-size: 12px">Loan Management</a>
                         <a href="{{route('user.budget')}}" class="btn fancy-btn fancy-active" style="font-size: 12px">Budget Calculator</a>
                         @endif
                         <a href="{{route('front.latest')}}" class="btn fancy-btn fancy-active" style="font-size: 12px">Latest Hopees</a>

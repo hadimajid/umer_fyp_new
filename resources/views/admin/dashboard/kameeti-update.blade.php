@@ -78,7 +78,7 @@
                                                         <label for="">
                                                             Kameeti Price
                                                         </label>
-                                                        <input type="number" class="form-control" name="price" required value="{{$kameeti->price}}" >
+                                                        <input type="number" class="form-control" name="price" id="price" required value="{{$kameeti->price}}" >
                                                         @error('price')
                                                         <label for="" style="color: red">{{$message}}</label>
                                                         @enderror
@@ -89,7 +89,7 @@
                                                         <label for="">
                                                             Kameeti Amount
                                                         </label>
-                                                        <input type="number" class="form-control" name="amount" required value="{{$kameeti->amount}}">
+                                                        <input type="number" class="form-control" name="amount" id="amount" required value="{{$kameeti->amount}}">
                                                         @error('amount')
                                                         <label for="" style="color: red">{{$message}}</label>
                                                         @enderror
@@ -136,7 +136,7 @@
 @endsection
 @section('scripts')
     <script>
-
+        let month=0;
         $('#duration').timeDurationPicker({
             seconds: false,
             minutes: false,
@@ -145,7 +145,17 @@
             years: false,
             onSelect: function(element, seconds, duration, text) {
                 $('#duration').val(text);
+                let temp=text.split(" ");
+                month=temp[0];
+                console.log(month)
+                let val=$('#price').val()/month;
+                $('#amount').val(val);
             }
         });
+
+        $("#price").on("change",function () {
+            let val=$(this).val()/month;
+            $('#amount').val(val);
+        })
     </script>
 @endsection

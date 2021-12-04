@@ -58,7 +58,10 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->notify(new \App\Notifications\VerifyEmailQueued);
     }
     public function kameetis(){
-       return $this->belongsToMany(Kameeti::class)->withPivot(['cnic_front','cnic_back','signature','registered']);
+       return $this->belongsToMany(Kameeti::class)->withPivot(['cnic_front','cnic_back','signature','registered'])->using(KameetiUser::class);
+    }
+    public function loans(){
+        return $this->hasMany(Loan::class);
     }
 
 }

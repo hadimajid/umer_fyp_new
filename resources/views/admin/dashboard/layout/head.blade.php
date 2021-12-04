@@ -23,3 +23,4 @@
 <link rel="stylesheet" href="{{asset('dashboard/plugins/daterangepicker/daterangepicker.css')}}">
 <!-- summernote -->
 <link rel="stylesheet" href="{{asset('dashboard/plugins/summernote/summernote-bs4.css')}}">
+<link rel="stylesheet" href="{{asset('css/lc_lightbox.css')}}">

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Hopeewinner;
 use App\Kameeti;
+use App\KameetiUser;
+use App\Loan;
 use App\Set;
 use App\User;
 use Illuminate\Http\Request;
@@ -183,6 +185,45 @@ class AdminDashboardController extends Controller
         $kameeti= Kameeti::findOrFail($id);
         $kameeti->delete();
         return redirect()->back()->with('success',"Kameeti deleted successfully.");
+
+    }
+    public function kameetiRequestList(){
+        $kameetis=KameetiUser::paginate(10);
+        return view('admin.dashboard.kameeti-request',compact('kameetis'));
+    }
+
+    public function rejectKameetiRegister(Request $request,$user_id,$kameeti_id){
+        $user=User::find($user_id);
+        $user->kameetis()->updateExistingPivot($kameeti_id, [
+            'registered' => 2,
+        ]);
+        return redirect()->back()->with('success',"Kameeti request rejected successfully.");
+
+    }
+    public function approveKameetiRegister(Request $request,$user_id,$kameeti_id){
+        $user=User::find($user_id);
+        $user->kameetis()->updateExistingPivot($kameeti_id, [
+            'registered' => 1,
+        ]);
+        return redirect()->back()->with('success',"Kameeti request approved successfully.");
+
+    }
+    public function loanRequestList(){
+        $loans=Loan::paginate(10);
+        return view('admin.dashboard.loan-request',compact('loans'));
+    }
+    public function rejectLoanRegister(Request $request,$user_id,$kameeti_id){
+        $loan=Loan::where("id",$kameeti_id)->where("user_id",$user_id)->first();
+        $loan->approved=2;
+        $loan->save();
+        return redirect()->back()->with('success',"Loan request rejected successfully.");
+
+    }
+    public function approveLoanRegister(Request $request,$user_id,$kameeti_id){
+        $loan=Loan::where("id",$kameeti_id)->where("user_id",$user_id)->first();
+        $loan->approved=1;
+        $loan->save();
+        return redirect()->back()->with('success',"Loan request approved successfully.");
 
     }
 }

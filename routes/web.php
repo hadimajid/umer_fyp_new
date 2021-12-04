@@ -41,6 +41,8 @@ Route::get('/get-kameeti-list', 'UserDashboardController@getKameetiList')->name(
 Route::get('/get-kameeti-register/{kameeti_id}', 'UserDashboardController@getRegisterKameeti')->name('user.getRegisterKameeti');
 Route::post('/kameeti-register/{kameeti_id}', 'UserDashboardController@registerKameeti')->name('user.registerKameeti');
 Route::get('/budget', 'UserDashboardController@budget')->name('user.budget');
+Route::get('/loan', 'UserDashboardController@loan')->name('user.loan');
+Route::post('/loan', 'UserDashboardController@submitLoan');
 
 
 
@@ -72,7 +74,11 @@ Route::get('/admin-kameeti-list', 'AdminDashboardController@kameetiList')->name(
 Route::get('/admin-kameeti-update/{id}', 'AdminDashboardController@updateKameeti')->name('admin.updateKameeti');
 Route::put('/admin-kameeti-update/{id}', 'AdminDashboardController@submitUpdateKameeti');
 Route::delete('admin-kameeti-delete/{id}','AdminDashboardController@deleteKameeti')->name('admin.deleteKameeti');
-
-
+Route::get('/admin-kameeti-request-list', 'AdminDashboardController@kameetiRequestList')->name('admin.kameetiRequestList');
+Route::post('admin-kameeti-register-reject/{user_id}/{kameeti_id}','AdminDashboardController@rejectKameetiRegister')->name('admin.rejectKameetiRegisterReject');
+Route::post('admin-kameeti-register-approve/{user_id}/{kameeti_id}','AdminDashboardController@approveKameetiRegister')->name('admin.approveKameetiRegisterReject');
+Route::get('/admin-loan-request-list', 'AdminDashboardController@loanRequestList')->name('admin.loanRequestList');
+Route::post('admin-loan-register-reject/{user_id}/{loan_id}','AdminDashboardController@rejectLoanRegister')->name('admin.rejectLoanRegisterReject');
+Route::post('admin-loan-register-approve/{user_id}/{loan_id}','AdminDashboardController@approveLoanRegister')->name('admin.approveLoanRegisterReject');
 Auth::routes(['verify'=> true]);
 //Route::get('/login', 'LoginController@index')->name('login');

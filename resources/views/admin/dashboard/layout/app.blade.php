@@ -165,7 +165,30 @@
                                     <p>Kameeti List</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{route('admin.kameetiRequestList')}}" class="nav-link">
+                                    <i class="far fa-money nav-icon"></i>
+                                    <p>Kameeti Requests</p>
+                                </a>
+                            </li>
 
+                        </ul>
+                    </li>
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Loan
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('admin.loanRequestList')}}" class="nav-link">
+                                    <i class="far fa-money nav-icon"></i>
+                                    <p>Loan Requests</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 

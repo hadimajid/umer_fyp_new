@@ -6,6 +6,7 @@ use App\Feedback;
 use App\Hopeewinner;
 use App\Http\Resources\Feedback as FeedbackResource;
 use App\Kameeti;
+use App\Loan;
 use App\Set;
 use App\Tid;
 use App\Withdraw;
@@ -311,6 +312,45 @@ class UserDashboardController extends Controller
     }
     public function budget(){
         return view('frontend.budget');
+    }
+    public function loan(){
+        return view('frontend.loan');
+    }
+    public function submitLoan(Request $request){
+        $validateDate=$request->validate([
+            'cnic_front'=>'required|mimes:jpeg,png,jpg',
+            'cnic_back'=>'required|mimes:jpeg,png,jpg',
+            'signature'=>'required|mimes:jpeg,png,jpg',
+            "amount"=>"required|numeric|min:10000"
+        ]);
+
+        $user=Auth::guard('web')->user();
+
+        if($request->hasFile('cnic_front')){
+            $cnicFront=$request->file('cnic_front');
+            $cnicFrontName=$user->username.date('dmY')."cnic_front.".$cnicFront->getClientOriginalExtension();
+            $cnicFront->move(public_path('loanUpload'),$cnicFrontName);
+        }
+        if($request->hasFile('cnic_back')){
+            $cnicBack=$request->file('cnic_back');
+            $cnicBackName=$user->username.date('dmY')."cnic_back.".$cnicBack->getClientOriginalExtension();
+            $cnicBack->move(public_path('loanUpload'),$cnicBackName);
+        }
+        if($request->hasFile('signature')){
+            $signature=$request->file('signature');
+            $signatureName=$user->username.date('dmY')."signature.".$signature->getClientOriginalExtension();
+            $signature->move(public_path('loanUpload'),$signatureName);
+        }
+        $loan=new Loan([
+            'cnic_front'=>asset("loanUpload/".$cnicFrontName),
+            'cnic_back'=>asset("loanUpload/".$cnicBackName),
+            'signature'=>asset("loanUpload/".$signatureName),
+            'amount'=>$request->amount,
+            'user_id'=>$user->id
+        ]);
+        $loan->save();
+        return redirect()->back()->with('success',"Our representative will contact you after verification.");
+
     }
 
 }
