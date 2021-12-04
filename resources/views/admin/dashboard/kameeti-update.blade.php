@@ -89,7 +89,7 @@
                                                         <label for="">
                                                             Kameeti Amount
                                                         </label>
-                                                        <input type="number" class="form-control" name="amount" id="amount" required value="{{$kameeti->amount}}">
+                                                        <input type="number" class="form-control" name="amount" id="amount" required value="{{$kameeti->amount}}" disabled>
                                                         @error('amount')
                                                         <label for="" style="color: red">{{$message}}</label>
                                                         @enderror
