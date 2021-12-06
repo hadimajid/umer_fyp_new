@@ -5,7 +5,11 @@
 @section('content')
 
 
-
+    <style>
+        label.error{
+            width: 50% !important;
+        }
+        </style>
 
     <!-- ***** Breadcumb Area Start ***** -->
     <div class="fancy-breadcumb-area bg-img bg-overlay" style="background-image: url({{asset('frontend/img/bg-img/hero-1.webp')}});">
@@ -34,7 +38,7 @@
                             <h4><small>Please Put Correct Email And Contact Number as you will be notified on these contacts.</small></h4>
                         </div>
                         <div class="contact-form">
-                            <form method="POST" action="{{ route('register') }}">
+                            <form method="POST" action="{{ route('register') }}" id="signup">
                             @csrf
                             <!-- Message Input Area Start -->
                                 <div class="contact_input_area">
@@ -90,7 +94,7 @@
                                         <!-- Single Input Area -->
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <input id="password" type="password" placeholder="Password" class="w-50 form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                                <input id="password" type="password" placeholder="Password" class="w-50 form-control @error('password') is-invalid @enderror" name="password" id="password" required autocomplete="current-password">
 
                                                 @error('password')
                                                 <span class="invalid-feedback" role="alert">
@@ -118,4 +122,38 @@
         </div>
     </div>
 
+@endsection
+@section('scripts')
+    <script>
+        $("#signup").validate({
+            rules:{
+                name:{
+                    required: true,
+                    isAlphaSpace: true,
+                },
+                username:{
+                    required: true,
+                    isAlphaNumeric: true,
+                },
+                number:{
+                    required: true,
+                    digits:true,
+                    minlength: 11,
+                    maxlength:11
+                },
+                email:{
+                    required: true,
+                    email: true,
+                },
+                password:{
+                    required: true,
+                    minlength:8,
+                },
+                password_confirmation:{
+                    required: true,
+                    equalTo: "#password"
+                }
+            }
+        })
+    </script>
 @endsection

@@ -34,7 +34,7 @@
                     <ol class="display-warning">
                         <li>Person must send us his/her digital signature in order to get registered in this module.</li>
                         <li>After verification of your NADRA issued ID card, you will be bound to pay all the dues related to your choice of selection regarding this module.</li>
-                        <li>In case of any fraudulent activity, Lawsuit will be fined against the person registered.</li>
+                        <li>In case of any fraudulent activity, Lawsuit will be filed against the person registered.</li>
                         <li>In case of payment delay the person will be given 3-4 working days time to clear out all the dues, if failed to do so lawsuit will be fined against the person.</li>
                         <li>Team HOPEE will not be able to assist in terms of late payments after that.</li>
                     </ol>

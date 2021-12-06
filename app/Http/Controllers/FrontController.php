@@ -46,9 +46,11 @@ class FrontController extends Controller
     }
     public function latest()
     {
+        $openSets = Set::all()->where('state','registration')->chunk(3)->first();
+
         $sets = Set::where('state','history')->get();
 
-        return view('frontend.latest',compact('sets'));
+        return view('frontend.latest',compact('sets','openSets'));
     }
     public function feedbacks()
     {

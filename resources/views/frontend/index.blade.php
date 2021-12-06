@@ -17,19 +17,22 @@
 {{--                        <div class="video-overview">--}}
 {{--                            <a href="https://www.youtube.com/watch?v=f5BBJ4ySgpo" class="video--play--btn"><i class="fa fa-play" aria-hidden="true"></i> Watch The Overview</a>--}}
 {{--                        </div>--}}
-                            <div class="video-overview">
-                                <a href="{{route('front.index')}}" ><i class="fa fa-heart-o" aria-hidden="true"></i>  We Give Hopee</a>
-                            </div>
+{{--                            <div class="video-overview">--}}
+{{--                                <a href="{{route('front.index')}}" ><i class="fa fa-heart-o" aria-hidden="true"></i>  We Give Hopee</a>--}}
+{{--                            </div>--}}
                         <h2>Select a set, Read the instructions, Make Investment, Be hopeful to win hopee of 4000%</h2>
-                        <h2><small>Your Remaining Credit: @auth{{Auth::user()->credit?decrypt(Auth::user()->credit->amount):0 }} Pkr <a href="{{route('userdash.creditdepamount')}}"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>@else {{0}}Pkr <a href="{{route('userdash.creditdepamount')}}"><i class="fa fa-plus-circle" aria-hidden="true"></i></a> @endauth</small></h2>
-                        <h2><small>Think we are scam? Check our:</small></h2>
+                        @if(auth()->guard('web')->check())
+                        <h2><small>Current Wallet: @auth{{Auth::user()->credit?decrypt(Auth::user()->credit->amount):0 }} Pkr <a href="{{route('userdash.creditdepamount')}}"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>@else {{0}}Pkr <a href="{{route('userdash.creditdepamount')}}"><i class="fa fa-plus-circle" aria-hidden="true"></i></a> @endauth</small></h2>
+                        @endif
+{{--                        <h2><small>Think we are scam? Check our:</small></h2>--}}
                         @if(auth()->guard('web')->check())
                         <a href="{{route('user.kameeti')}}" class="btn fancy-btn fancy-active" style="font-size: 12px">Kameeti</a>
                         <a href="{{route('user.loan')}}" class="btn fancy-btn fancy-active" style="font-size: 12px">Loan Management</a>
                         <a href="{{route('user.budget')}}" class="btn fancy-btn fancy-active" style="font-size: 12px">Budget Calculator</a>
-                        @endif
                         <a href="{{route('front.latest')}}" class="btn fancy-btn fancy-active" style="font-size: 12px">Latest Hopees</a>
                         <a href="{{route('front.feedbacks')}}" class="btn fancy-btn" style="font-size: 12px">Our Feedback</a>
+                        @endif
+
                     </div>
                 </div>
             </div>
@@ -74,172 +77,47 @@
     <section class="fancy-about-us-area bg-gray">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
-                    <div class="about-us-text">
-                        <h2>Instructions! (Please Read Carefully)</h2>
-                        <h4>Before you invest in our Sets, We highly recommend you to read our instructions below:</h4>
-                        <h5 class="text-primary"><b>(NOTE)  </b>   You should deposit funds to increase your credits so that you can make security payment and perday payment</h5>
-                        <ul>
-                            <li class=" h5">1- Read the info of the given Sets and select the sets you want to register in.</li>
-                            <li class=" h5">2- After a set has been selected register into that set by paying the security specified.</li>
-                            <li class=" h5">3- After you have been registered into a set you have to pay daily the perday amount via your dashboard</li>
-                            <li class=" h5">4- Set will be ended when total days has been completed.</li>
-                            <li class=" h5">5- When the set will end out of the total users 3 users will be randomly selected by <b>Google implemented random number generator</b></li>
-                            <li class=" h5">6- Those 3 number will be given 1st,2nd and 3rd hopee respectively (specified in each Set)</li>
-                            <li class=" h5">7- The users that won't be selected for the hopee will be refunded by 79% of there total invested amount</li>
-                        </ul>
+
+                <div class="col-12 col-md-4">
+                    <div class="single-top-feature">
+                        <h5><i class="fa fa-diamond" aria-hidden="true"></i> What other things HOPEE provides?</h5>
+                        <p>Hopee is a platform where you can win upto 4000% of your invested amount or get a refund of almost 79%. Besides this, hopee also provides a KAMETI service, Loan Service, Budgeting Calculator and Kameti calculator. </p>
                     </div>
                 </div>
-                <div class="col-sm-0 col-md-4">
-                    <div class="about-us-thumb wow fadeInUp" data-wow-delay="0.5s">
-                        <img src="{{asset('frontend/img/bg-img/about-1.webp')}}" alt="">
+                <div class="col-12 col-md-4">
+                    <div class="single-top-feature">
+                        <h5><i class="fa fa-diamond" aria-hidden="true"></i> What is loan Service?
+                        </h5>
+                        <p> Loan Service is the service provided by our hopee platform to help out the people in need of loan with no interest. We will charge 1.5% rent fee for giving out the loan which is not similar to interest as authenticated by Ulimahs too.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="single-top-feature">
+                        <h5><i class="fa fa-diamond" aria-hidden="true"></i>What does Kameti service do?
+                        </h5>
+                        <p> Kameti is the service which every one can avail. It is basically a type of savings wallet where you can submit your desired amount for the desired period of time. And by the end of that period you can get all your money back.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="single-top-feature">
+                        <h5><i class="fa fa-diamond" aria-hidden="true"></i>What does Kameti calculator do?
+
+                        </h5>
+                        <p>Kameti calulator helps you calculate the duration and money to be saved in the specific period of time for any specific item of your choice you want to buy. </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="single-top-feature">
+                        <h5><i class="fa fa-diamond" aria-hidden="true"></i>What does Budget calculator do?
+
+                        </h5>
+                        <p> Budget Calculator simply asks you about your monthly income and other expenses, then generates the amount you should be saving after all your expenditures and expenses etc.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- ***** About Us Area End ***** -->
-
-    <!-- ***** Skills Area Start ***** -->
-    <section class="fancy-skills-area section-padding-200">
-        <!-- Side Thumb -->
-        <div class="skills-side-thumb">
-            <img src="{{asset('frontend/img/laptop.webp')}}" alt="">
-        </div>
-        <!-- Skills Content -->
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-6 col-xl-5 ml-auto">
-                    <div class="section-heading">
-                        <h2>Frequently Asked Questions!</h2>
-                        <p>All the points that should be noted are listed below:</p>
-                    </div>
-                    <div class="skills-content">
-                        <!-- Single Progress Bar -->
-                        <ol>
-                            <li class="pb-1">1- If for some reasons you would'nt be able to pay perday amount, it will be deducted out of your security</li>
-                            <li class="pb-1">2- If you will leave paying perday amount and your security of that has ended you will be unregistered from that set</li>
-                            <li class="pb-1">3- You can register into more than one set.</li>
-                            <li class="pb-1">4- You should be a jazzcash user to be able to pay amount.</li>
-                            <li class="pb-1">5- <b>(IMPORTANT)</b>   You can pay as much security you want in start. If you will deposit complete total amount you won't have to worry for perday. Once total days are completed you will be informed about your hopee status.</li>
-{{--                            <li class="pb-1"></li>--}}
-                        </ol>
-                    </div>
-{{--                    <a href="#" class="btn fancy-btn fancy-dark"></a>--}}
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ***** Skills Area End ***** -->
-
-    <!-- ***** Service Area Start ***** -->
-    <section id="set" class="fancy-services-area bg-img bg-overlay section-padding-100-70" style="background-image: url({{asset('frontend/img/bg-img/hero-2.webp')}})">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-heading heading-white text-center">
-                        <h2>Latest Sets</h2>
-                        <p>Latest Sets Opened For Registration</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <!-- Single Service -->
-                @if($sets != null)
-                    @foreach($sets as $set)
-                        <div class="col-12 col-md-4">
-                            <div class="single-service-area text-center wow fadeInUp" data-wow-delay="0.5s">
-                                <div class="tile">
-                                    <div class="wrapper">
-                                        <div class="header"></div>
-
-                                        <div class="banner-img">
-                                            <img src="{{asset('frontend/img/featureset.webp')}}" alt="Image 1">
-                                        </div>
-
-                                        <div class="dates">
-                                            <div class="start">
-                                                <strong>Current Users</strong> {{$set->currentusers}}/{{$set->totalusers}}
-                                                <span></span>
-                                            </div>
-                                            <div class="ends">
-                                                <strong>Per Day</strong> {{$set->perday}}
-                                            </div>
-                                            <div class="col-6 offset-3 mt-3">
-                                                <strong>Total Days</strong> {{$set->totalday}}
-                                            </div>
-                                        </div>
-
-                                        <div class="stats">
-
-                                            <div>
-                                                <strong>1st Hopee</strong> {{$set->firsthopee}}
-                                            </div>
-
-                                            <div>
-                                                <strong>2nd Hopee</strong> {{$set->secondhopee}}
-                                            </div>
-
-                                            <div>
-                                                <strong>3rd Hopee</strong> {{$set->thirdhopee}}
-                                            </div>
-
-                                        </div>
-
-                                        <div class="stats">
-
-                                            <div>
-                                                <strong>Current Users</strong> {{$set->currentusers}}
-                                            </div>
-
-                                            <div>
-                                                <strong>Total Users</strong> {{$set->totalusers}}
-                                            </div>
-
-                                            <div>
-                                                <strong>Security To Deposit</strong> {{(int)round($set->totalamountperperson / 100 * 20 + 50,-2)}}
-                                            </div>
-
-                                        </div>
-
-                                        <div class="stats">
-
-                                            <div>
-                                                <strong>Total Days</strong> {{$set->totalday}}
-                                            </div>
-
-                                            <div>
-                                                <strong>Total For Each User</strong> {{$set->totalamountperperson}}
-                                            </div>
-
-                                            <div>
-                                                <strong>Total Refund</strong> 79%({{$set->returnperperson}})
-                                            </div>
-
-                                        </div>
-
-                                        <div class="footer">
-                                            <form role="form" action="{{route('frontset.security',$set->id)}}" method="post">
-                                                @csrf
-                                                <div class="form-group">
-                                                    <label for="security" class="float-left ml-1">Security To Deposit <b>(in multiple of {{$set->perday}})</b></label>
-                                                    <input type="number" class="form-control" id="security" name="security" placeholder="Security" value="{{(int)round($set->totalamountperperson / 100 * 20 + 50,-2)}}">
-                                                </div>
-
-                                                <button type="submit" class="btn btn-primary" onclick="return confirm('Have you read the instructions?');">Register</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                @endif
-            </div>
-        </div>
-    </section>
-    <!-- ***** Service Area End ***** -->
 
     <!-- ***** Testimonials Area Start ***** -->
     <section class="fancy-testimonials-area section-padding-100">

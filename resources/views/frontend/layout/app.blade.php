@@ -204,9 +204,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{route('front.about')}}">About Us</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{route('front.latest')}}">Latest Hopees</a>
-                                </li>
+{{--                                <li class="nav-item">--}}
+{{--                                    <a class="nav-link" href="{{route('front.latest')}}">Latest Hopees</a>--}}
+{{--                                </li>--}}
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{route('front.feedbacks')}}">Feedbacks</a>
                                 </li>
@@ -457,6 +457,17 @@
         }
 
     })
+    $.validator.methods.email = function( value, element ) {
+        return this.optional( element ) || /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([gmail|yahoo|outlook|hotmail]+\.)+[a-zA-Z]{2,}))$/.test( value );
+    }
+    jQuery.validator.addMethod("isAlphaSpace", function(value, element, params) {
+        return this.optional(element) || /^[a-zA-Z ]+$/.test(value);
+    }, jQuery.validator.format("Please enter alphabets or space."));
+
+    jQuery.validator.addMethod("isAlphaNumeric", function(value, element, params) {
+        return this.optional(element) || /^[a-zA-Z0-9]+$/.test(value);
+    }, jQuery.validator.format("Please enter alphabets or numbers."));
+
 </script>
 @yield('scripts')
 </body>
