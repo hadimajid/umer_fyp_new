@@ -428,6 +428,35 @@
 @endif
 @yield('footer')
 <script>
+    $.validator.methods.email = function( value, element ) {
+        return this.optional( element ) || /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([gmail|yahoo|outlook|hotmail]+\.)+[a-zA-Z]{2,}))$/.test( value );
+    }
+    jQuery.validator.addMethod("isAlphaSpace", function(value, element, params) {
+        return this.optional(element) || /^[a-zA-Z ]+$/.test(value);
+    }, jQuery.validator.format("Please enter alphabets or space."));
+
+    jQuery.validator.addMethod("isAlphaNumeric", function(value, element, params) {
+        return this.optional(element) || /^[a-zA-Z0-9]+$/.test(value);
+    }, jQuery.validator.format("Please enter alphabets or numbers."));
+    $.validator.addMethod('filesize', function (value, element, param) {
+        console.log(element.files[0].size)
+        return this.optional(element) || (((parseFloat(element.files[0].size)/1000)/1000) <= param)
+    }, 'File size must be less than {0} MB');
+    $.validator.addMethod('ge', function(value, element, param) {
+        return this.optional(element) || parseInt(value) >= parseInt($(param).val());
+    }, 'To value must be greater than or equal to From');
+    $.validator.addMethod('lessThanSalary', function(value, element, param) {
+        let grocery_from=parseInt($('#grocery_from').val()) || 0;
+        let grocery_to=parseInt($('#grocery_to').val()) || 0;
+        let utility_from=parseInt($('#utility_from').val()) || 0;
+        let utility_to=parseInt($('#grocery_to').val()) || 0;
+        let home_rent=parseInt($('#home_rent').val()) || 0;
+        let others=parseInt($('#others').val()) || 0;
+        let total=grocery_from+grocery_to+utility_from+utility_to+home_rent+others;
+        console.log(total)
+        console.log(value)
+        return this.optional(element) || value >=total ;
+    }, 'Expense value must be less than salary.');
     let cal_name='';
     let cal_price=0;
     let cal_duration=0;
@@ -457,16 +486,6 @@
         }
 
     })
-    $.validator.methods.email = function( value, element ) {
-        return this.optional( element ) || /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([gmail|yahoo|outlook|hotmail]+\.)+[a-zA-Z]{2,}))$/.test( value );
-    }
-    jQuery.validator.addMethod("isAlphaSpace", function(value, element, params) {
-        return this.optional(element) || /^[a-zA-Z ]+$/.test(value);
-    }, jQuery.validator.format("Please enter alphabets or space."));
-
-    jQuery.validator.addMethod("isAlphaNumeric", function(value, element, params) {
-        return this.optional(element) || /^[a-zA-Z0-9]+$/.test(value);
-    }, jQuery.validator.format("Please enter alphabets or numbers."));
 
 </script>
 @yield('scripts')

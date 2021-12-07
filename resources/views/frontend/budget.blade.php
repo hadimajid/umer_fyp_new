@@ -98,7 +98,9 @@
             rules: {
                 salary: {
                     required: true,
-                    lessThanSalary: true
+                    lessThanSalary: true,
+                    number:true,
+                    max:1000000,
                 },
                 grocery_from: {
                     required: true,
@@ -158,6 +160,7 @@
                 $('#result').html(
                     "<p> Rs "+result+" is the amount you will be saving every month.</p>"
                 )
+                $(this).hide()
             }
         })
     </script>

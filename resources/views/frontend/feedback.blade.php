@@ -454,6 +454,8 @@
                             </p>
                             <p>Muhammad Fawad Ur Rehman
                             </p>
+                            <p>+9216-4643920 <br>iumersocial@gmail.com</p>
+                            <p>Umer Farooq</p>
                             {{--                            <p>40 Baria Sreet 133/2 <br>NewYork City, US</p>--}}
                             {{--                            <p>Open hours: 8.00-18.00 Mon-Fri</p>--}}
                         </div>

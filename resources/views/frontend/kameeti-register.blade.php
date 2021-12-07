@@ -59,13 +59,13 @@
                                 </div>
                             @endif
                             <h6 class="text-center font-weight-bold">Kameeti Register Form</h6>
-                            <form action="{{route('user.registerKameeti',[$kameeti->id])}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('user.registerKameeti',[$kameeti->id])}}" method="post" enctype="multipart/form-data" id="registerKameeti">
                                 @csrf
                                 @method('POST')
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="cnic_front">Cnic Front <small style="color: red">*</small></label>
+                                            <label for="cnic_front">Cnic Front <small style="color: red">(file size must be less than 1mb) *</small></label>
                                             <input type="file" name="cnic_front" id="cnic_front" class="form-control form-control-file">
                                             @error('cnic_front')
                                             <label for="cnic_front" class="error" id="cnic_front-error">{{$message}}</label>
@@ -74,7 +74,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="cnic_back">Cnic back <small style="color: red">*</small></label>
+                                            <label for="cnic_back">Cnic back <small style="color: red">(file size must be less than 1mb) *</small></label>
                                             <input type="file" name="cnic_back" id="cnic_back" class="form-control form-control-file">
                                             @error('cnic_back')
                                             <label for="cnic_back" class="error" id="cnic_back-error">{{$message}}</label>
@@ -83,7 +83,7 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="signature">Signature <small style="color: red">*</small></label>
+                                            <label for="signature">Signature <small style="color: red">(file size must be less than 1mb) *</small></label>
                                             <input type="file" name="signature" id="signature" class="form-control form-control-file">
                                             @error('signature')
                                             <label for="signature" class="error" id="signature-error">{{$message}}</label>
@@ -104,4 +104,24 @@
     <!-- ***** Contact Area End ***** -->
 
 
+@endsection
+@section('scripts')
+    <script>
+        $("#registerKameeti").validate({
+           rules:{
+               cnic_front:{
+                   required: true,
+                   filesize:1,
+               },
+               cnic_back:{
+                   required: true,
+                   filesize:1,
+               },
+               signature:{
+                   required: true,
+                   filesize:1,
+               },
+           }
+        });
+    </script>
 @endsection
