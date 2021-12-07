@@ -291,17 +291,17 @@ class UserDashboardController extends Controller
         }
         if($request->hasFile('cnic_front')){
             $cnicFront=$request->file('cnic_front');
-            $cnicFrontName=$user->username.date('dmY')."cnic_front.".$cnicFront->getClientOriginalExtension();
+            $cnicFrontName=$user->username.date('dmYhis')."cnic_front.".$cnicFront->getClientOriginalExtension();
             $cnicFront->move(public_path('kameetiUpload'),$cnicFrontName);
         }
         if($request->hasFile('cnic_back')){
             $cnicBack=$request->file('cnic_back');
-            $cnicBackName=$user->username.date('dmY')."cnic_back.".$cnicBack->getClientOriginalExtension();
+            $cnicBackName=$user->username.date('dmYhis')."cnic_back.".$cnicBack->getClientOriginalExtension();
             $cnicBack->move(public_path('kameetiUpload'),$cnicBackName);
         }
         if($request->hasFile('signature')){
             $signature=$request->file('signature');
-            $signatureName=$user->username.date('dmY')."signature.".$signature->getClientOriginalExtension();
+            $signatureName=$user->username.date('dmYhis')."signature.".$signature->getClientOriginalExtension();
             $signature->move(public_path('kameetiUpload'),$signatureName);
         }
         $kameeti->users()->attach($user->id,[
@@ -330,17 +330,17 @@ class UserDashboardController extends Controller
 
         if($request->hasFile('cnic_front')){
             $cnicFront=$request->file('cnic_front');
-            $cnicFrontName=$user->username.date('dmY')."cnic_front.".$cnicFront->getClientOriginalExtension();
+            $cnicFrontName=$user->username.date('dmYhis')."cnic_front.".$cnicFront->getClientOriginalExtension();
             $cnicFront->move(public_path('loanUpload'),$cnicFrontName);
         }
         if($request->hasFile('cnic_back')){
             $cnicBack=$request->file('cnic_back');
-            $cnicBackName=$user->username.date('dmY')."cnic_back.".$cnicBack->getClientOriginalExtension();
+            $cnicBackName=$user->username.date('dmYhis')."cnic_back.".$cnicBack->getClientOriginalExtension();
             $cnicBack->move(public_path('loanUpload'),$cnicBackName);
         }
         if($request->hasFile('signature')){
             $signature=$request->file('signature');
-            $signatureName=$user->username.date('dmY')."signature.".$signature->getClientOriginalExtension();
+            $signatureName=$user->username.date('dmYhis')."signature.".$signature->getClientOriginalExtension();
             $signature->move(public_path('loanUpload'),$signatureName);
         }
         $loan=new Loan([
