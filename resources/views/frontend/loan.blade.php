@@ -13,6 +13,7 @@
                     <div class="breadcumb-content text-center">
                         <h2>Loan</h2>
                         <h4 class="text-white">Register your Loan</h4>
+                        <h2><small>Current Wallet: @auth{{Auth::user()->credit?decrypt(Auth::user()->credit->amount):0 }} Pkr <a href="{{route('userdash.creditdepamount')}}"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>@else {{0}}Pkr <a href="{{route('userdash.creditdepamount')}}"><i class="fa fa-plus-circle" aria-hidden="true"></i></a> @endauth</small></h2>
                     </div>
                 </div>
             </div>
