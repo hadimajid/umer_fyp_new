@@ -81,4 +81,7 @@ Route::get('/admin-loan-request-list', 'AdminDashboardController@loanRequestList
 Route::post('admin-loan-register-reject/{user_id}/{loan_id}','AdminDashboardController@rejectLoanRegister')->name('admin.rejectLoanRegisterReject');
 Route::post('admin-loan-register-approve/{user_id}/{loan_id}','AdminDashboardController@approveLoanRegister')->name('admin.approveLoanRegisterReject');
 Auth::routes(['verify'=> true]);
+Route::get("test",function (){
+   return json_encode(public_path());
+});
 //Route::get('/login', 'LoginController@index')->name('login');
