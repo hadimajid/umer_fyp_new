@@ -58,7 +58,10 @@ class UserDashboardController extends Controller
             'tid' => 'string:required',
             'source' => ''
         ]);
-
+        $temp=strrev($data["tid"]);
+        $temp=substr($temp,0,6);
+        $temp=strrev($temp);
+        $data['tid']=$temp;
         $newtid = reset($data);
         $tids = Tid::all();
         foreach ($tids as $tid){
@@ -66,10 +69,8 @@ class UserDashboardController extends Controller
                 return redirect()->route('front.index')->withErrors(['This Tid is already submitted', 'The Message']);
         }
         $client = new Client();
-        $res = $client->request('GET', 'https://semysms.net/api/3/inbox_sms.php?token=d67ea79fff97c460d25ea43ab4d44015&device=231970&phone=9225&data_start=2015-01-27 13:03:42&date_end=2021-01-27 13:03:42');
-
+        $res = $client->request('GET', 'https://semysms.net/api/3/inbox_sms.php?token=c1e30d0afe0bdb88e2433cd1ff464e2e&device=285352&phone=9225');
         $apiresult = $res->getBody()->getContents();
-
         if (strpos($apiresult, $newtid) !== false && strpos($apiresult, $amount) !== false) {
             $tid = new Tid();
             $tid->tid = $newtid;
@@ -84,7 +85,7 @@ class UserDashboardController extends Controller
         else {
             if ($data['source'] == 'EasyPaisa') {
                 $client = new Client();
-                $res = $client->request('GET', 'https://semysms.net/api/3/inbox_sms.php?token=d67ea79fff97c460d25ea43ab4d44015&device=231970&phone=3737&data_start=2015-01-27 13:03:42&date_end=2021-01-27 13:03:42');
+                $res = $client->request('GET', 'https://semysms.net/api/3/inbox_sms.php?token=c1e30d0afe0bdb88e2433cd1ff464e2e&device=231970&phone=3737&data_start=2015-01-27 13:03:42&date_end=2021-01-27 13:03:42');
 
                 $apiresult = $res->getBody()->getContents();
 
@@ -102,7 +103,7 @@ class UserDashboardController extends Controller
                 }
             } else {
                 $client = new Client();
-                $res = $client->request('GET', 'https://semysms.net/api/3/inbox_sms.php?token=d67ea79fff97c460d25ea43ab4d44015&device=231970&phone=8558&data_start=2015-01-27 13:03:42&date_end=2021-01-27 13:03:42');
+                $res = $client->request('GET', 'https://semysms.net/api/3/inbox_sms.php?token=c1e30d0afe0bdb88e2433cd1ff464e2e&device=231970&phone=8558&data_start=2015-01-27 13:03:42&date_end=2021-01-27 13:03:42');
 
                 $apiresult = $res->getBody()->getContents();
 
@@ -120,6 +121,7 @@ class UserDashboardController extends Controller
                 }
             }
         }
+        dd($apiresult);
 
     }
     public function payment($set)
@@ -133,10 +135,10 @@ class UserDashboardController extends Controller
             if (decrypt($user->credit->amount)>=$set->perday){
 
                 $set->Users()->updateExistingPivot($user->id, [
-                'todaypayment' => true,
-                'amountdeposited' => $amountdeposited + $set->perday,
-            ]);
-            $user->deductCredits($set->perday);
+                    'todaypayment' => true,
+                    'amountdeposited' => $amountdeposited + $set->perday,
+                ]);
+                $user->deductCredits($set->perday);
             }
             else
                 return redirect()->route('userdash.creditdep')->withErrors(['You don\'t Have any fund please deposit first', 'The Message']);
@@ -307,7 +309,7 @@ class UserDashboardController extends Controller
             'cnic_back'=>asset("kameetiUpload/".$cnicBackName),
             'signature'=>asset("kameetiUpload/".$signatureName),
         ]);
-            return redirect()->back()->with('success',"Kameeti will get register after verification.");
+        return redirect()->back()->with('success',"Kameeti will get register after verification.");
 
     }
     public function budget(){
