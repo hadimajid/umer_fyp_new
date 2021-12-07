@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if($_SERVER['REMOTE_ADDR']=="hopee.online") {
+        if($_SERVER['HTTP_HOST']=="hopee.online") {
             $this->app->bind('path.public', function () {
                 return realpath(base_path() . '/../public_html');
             });
