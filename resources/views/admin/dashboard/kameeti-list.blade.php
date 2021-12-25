@@ -15,7 +15,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Kameeti List</h1>
+                        <h1>Saving Wallet List</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -31,7 +31,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Kameeti</h3>
+                            <h3 class="card-title">Saving Wallet</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
