@@ -12,4 +12,7 @@ class KameetiUser extends Pivot
     public function kameeti(){
         return $this->belongsTo(Kameeti::class);
     }
+    public function notifications(){
+        return $this->morphToMany(Notification::class,"notifiable");
+    }
 }

@@ -5,11 +5,10 @@ namespace App;
 use Iamjaime\Credits\Traits\UsesCredits;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable,UsesCredits;
+    use UsesCredits;
 
     /**
      * The attributes that are mass assignable.
@@ -58,10 +57,15 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->notify(new \App\Notifications\VerifyEmailQueued);
     }
     public function kameetis(){
-       return $this->belongsToMany(Kameeti::class)->withPivot(['cnic_front','cnic_back','signature','registered'])->using(KameetiUser::class);
+       return $this->belongsToMany(Kameeti::class)->withPivot(['id','cnic_front','cnic_back','signature','registered'])->using(KameetiUser::class);
     }
     public function loans(){
         return $this->hasMany(Loan::class);
     }
-
+    public function loanNotifications(){
+        return $this->morphedByMany(Loan::class,"notifiable")->withPivot(['status'])->withTimestamps();
+    }
+    public function kameetiNotifications(){
+        return $this->morphedByMany(KameetiUser::class,"notifiable")->withPivot(['status'])->withTimestamps();
+    }
 }

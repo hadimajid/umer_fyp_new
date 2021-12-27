@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Feedback;
 use App\Hopeewinner;
 use App\Mail\ContactUs;
+use App\Notifiable;
 use App\Set;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;

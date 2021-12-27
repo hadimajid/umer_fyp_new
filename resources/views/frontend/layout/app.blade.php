@@ -156,6 +156,9 @@
             color: white;
             width: 100%;
         }
+        .hide-caret::after{
+                display: none !important;
+        }
     </style>
     @yield('head')
 
@@ -249,6 +252,55 @@
                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                     @csrf
                                                 </form>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link" data-toggle="dropdown" href="#">
+                                                @php
+                                                    $notifications=App\Notifiable::where('user_id',Auth::guard('web')->user()->id)->where('status',0)->get();
+                                                    $count=App\Notifiable::where('user_id',Auth::guard('web')->user()->id)->where('status',0)->count();
+                                                @endphp
+                                                <i class="fa fa-bell"></i>
+                                                <span class="badge badge-warning navbar-badge">{{$count}}</span>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                                                <span class="dropdown-item dropdown-header">{{$count}} Notifications</span>
+                                                <div class="dropdown-divider"></div>
+                                                @foreach($notifications as $notification)
+                                                    @php
+                                                        $now=new \Carbon\Carbon('now');
+                                                        $createdAt=new \Carbon\Carbon($notification->created_at);
+                                                        $diff=$createdAt->diffForHumans($now);
+                                                    @endphp
+                                                <a href="#" class="dropdown-item">
+                                                    @if($notification->notifiable_type=="App\Loan")
+                                                    @php
+                                                        $type="";
+                                                        if($notification->loan->approved==1){
+                                                            $type="approved";
+                                                        }
+                                                        if($notification->loan->approved==2){
+                                                            $type="rejected";
+                                                        }
+                                                    @endphp
+                                                    {{"Loan request of amount {$notification->loan->amount} is $type"}}
+
+                                                    @elseif($notification->notifiable_type=="App\KameetiUser")
+                                                        @php
+                                                           $type="";
+                                                           if($notification->kameeti->registered==1){
+                                                               $type="approved";
+                                                           }
+                                                           if($notification->kameeti->registered==2){
+                                                               $type="rejected";
+                                                           }
+                                                        @endphp
+                                                        {{"Kameeti {$notification->kameeti->kameeti->name} is $type"}}
+                                                    @endif
+                                                    <span class="float-right text-muted text-sm">{{$diff}}</span>
+                                                </a>
+                                                @endforeach
+                                                <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                                             </div>
                                         </li>
                                     @endguest

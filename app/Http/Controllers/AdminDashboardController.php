@@ -197,6 +197,8 @@ class AdminDashboardController extends Controller
         $user->kameetis()->updateExistingPivot($kameeti_id, [
             'registered' => 2,
         ]);
+        $pivot=$user->kameetis()->find($kameeti_id);
+        $user->kameetiNotifications()->attach($pivot->pivot);
         return redirect()->back()->with('success',"Kameeti request rejected successfully.");
 
     }
@@ -205,6 +207,8 @@ class AdminDashboardController extends Controller
         $user->kameetis()->updateExistingPivot($kameeti_id, [
             'registered' => 1,
         ]);
+        $pivot=$user->kameetis()->find($kameeti_id);
+        $user->kameetiNotifications()->attach($pivot->pivot);
         return redirect()->back()->with('success',"Kameeti request approved successfully.");
 
     }
@@ -216,6 +220,8 @@ class AdminDashboardController extends Controller
         $loan=Loan::where("id",$kameeti_id)->where("user_id",$user_id)->first();
         $loan->approved=2;
         $loan->save();
+        $user=User::find($user_id);
+        $user->loanNotifications()->attach($loan);
         return redirect()->back()->with('success',"Loan request rejected successfully.");
 
     }
@@ -223,6 +229,8 @@ class AdminDashboardController extends Controller
         $loan=Loan::where("id",$kameeti_id)->where("user_id",$user_id)->first();
         $loan->approved=1;
         $loan->save();
+        $user=User::find($user_id);
+        $user->loanNotifications()->attach($loan);
         return redirect()->back()->with('success',"Loan request approved successfully.");
 
     }
