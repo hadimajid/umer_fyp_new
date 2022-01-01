@@ -128,7 +128,14 @@
                 </li>
 
 
-
+                <li class="nav-item">
+                    <a href="{{route("userdash.notification")}}" class="nav-link">
+                        <i class="nav-icon fas fa-bell"></i>
+                        <p>
+                             Notifications
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

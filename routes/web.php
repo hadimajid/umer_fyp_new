@@ -31,6 +31,8 @@ Route::get('/my-dashboard/active/payment/{set}', 'UserDashboardController@paymen
 Route::get('/my-dashboard/registered', 'UserDashboardController@registered')->name('userdash.registered');
 Route::get('/my-dashboard/history', 'UserDashboardController@history')->name('userdash.history');
 Route::get('/my-dashboard/ratings', 'UserDashboardController@rating')->name('userdash.rating');
+Route::get('/my-dashboard/notification', 'UserDashboardController@notification')->name('userdash.notification');
+Route::get('/my-dashboard/notification/{id}', 'UserDashboardController@notificationDetails')->name('userdash.notificationDetails');
 
 Route::post('/registration/{set}', 'FrontSetController@registration')->name('frontset.register');
 Route::post('/hopeefeed/{hopee}', 'FrontSetController@hopeefeedupdate')->name('frontset.feedupdate');

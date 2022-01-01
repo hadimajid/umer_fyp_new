@@ -257,22 +257,22 @@
                                         <li class="nav-item dropdown">
                                             <a class="nav-link" data-toggle="dropdown" href="#">
                                                 @php
-                                                    $notifications=App\Notifiable::where('user_id',Auth::guard('web')->user()->id)->where('status',0)->get();
+                                                    $notifications=App\Notifiable::where('user_id',Auth::guard('web')->user()->id)->where('status',0)->orderBy("created_at","desc")->get();
                                                     $count=App\Notifiable::where('user_id',Auth::guard('web')->user()->id)->where('status',0)->count();
                                                 @endphp
                                                 <i class="fa fa-bell"></i>
                                                 <span class="badge badge-warning navbar-badge">{{$count}}</span>
                                             </a>
-                                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                                                <span class="dropdown-item dropdown-header">{{$count}} Notifications</span>
+                                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="overflow-y: scroll;max-height: 300px;">
+                                                <a href="{{route("userdash.notification")}}" class="dropdown-item dropdown-header">See All Notifications</a>
                                                 <div class="dropdown-divider"></div>
-                                                @foreach($notifications as $notification)
+                                                @forelse($notifications as $notification)
                                                     @php
                                                         $now=new \Carbon\Carbon('now');
                                                         $createdAt=new \Carbon\Carbon($notification->created_at);
                                                         $diff=$createdAt->diffForHumans($now);
                                                     @endphp
-                                                <a href="#" class="dropdown-item">
+                                                <a href="{{route("userdash.notificationDetails",$notification->id)}}" class="dropdown-item">
                                                     @if($notification->notifiable_type=="App\Loan")
                                                     @php
                                                         $type="";
@@ -299,8 +299,11 @@
                                                     @endif
                                                     <span class="float-right text-muted text-sm">{{$diff}}</span>
                                                 </a>
-                                                @endforeach
-                                                <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                                                    @empty
+                                                    <a href="#" class="dropdown-item">
+                                                        No new notification
+                                                    </a>
+                                                @endforelse
                                             </div>
                                         </li>
                                     @endguest

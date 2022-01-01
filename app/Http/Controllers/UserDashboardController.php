@@ -7,6 +7,7 @@ use App\Hopeewinner;
 use App\Http\Resources\Feedback as FeedbackResource;
 use App\Kameeti;
 use App\Loan;
+use App\Notifiable;
 use App\Set;
 use App\Tid;
 use App\Withdraw;
@@ -353,6 +354,43 @@ class UserDashboardController extends Controller
         $loan->save();
         return redirect()->back()->with('success',"Our representative will contact you after verification.");
 
+    }
+    public function notification(){
+        $notifications=Notifiable::where('user_id',Auth::guard('web')->user()->id)->orderBy("created_at","desc")->get();
+
+        return view("dashboard.notification",compact('notifications'));
+    }
+    public function notificationDetails($id){
+        $notification=Notifiable::where('id',$id)->where('user_id',Auth::guard('web')->user()->id)->orderBy("created_at","desc")->first();
+        $notification->status=1;
+        $notification->save();
+        $now=new \Carbon\Carbon('now');
+        $createdAt=new \Carbon\Carbon($notification->created_at);
+        $diff=$createdAt->diffForHumans($now);
+        $desc="";
+        if($notification->notifiable_type=="App\Loan")
+        {     $type="";
+            if($notification->loan->approved==1){
+                $type="approved";
+            }
+            if($notification->loan->approved==2){
+                $type="rejected";
+            }
+
+            $desc="Loan request of amount {$notification->loan->amount} is $type";
+
+        }
+        elseif($notification->notifiable_type=="App\KameetiUser"){
+            $type="";
+            if($notification->kameeti->registered==1){
+                $type="approved";
+            }
+            if($notification->kameeti->registered==2){
+                $type="rejected";
+            }
+            $desc="Kameeti {$notification->kameeti->kameeti->name} is $type";
+        }
+        return view("dashboard.notification-details",compact('notification','desc','diff'));
     }
 
 }
