@@ -36,6 +36,9 @@
 <script src="{{asset('dashboard/dist/js/demo.js')}}"></script>
 <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <script>
-    $("#notificaton-table").dataTable()
 
+    $(document).ready(function () {
+        $(".dataTable").DataTable({})
+
+    });
 </script>

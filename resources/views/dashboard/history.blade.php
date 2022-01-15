@@ -37,38 +37,31 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4"><div class="row">
-                                    <div class="col-sm-12 col-md-6">
-                                        <div id="example1_filter" class="dataTables_filter pull-right">
-                                            <label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
-                                        </div>
-                                    </div>
-
-                                </div>
+                            <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                             <thead>
                                             <tr role="row">
-                                                <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 166px;">
+                                                <th  >
                                                     Sr.No
                                                 </th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 219px;">
+                                                <th  >
                                                     Per Day Amount
                                                 </th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 219px;">
+                                                <th  >
                                                     Total Days
                                                 </th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 219px;">
+                                                <th  >
                                                     Total Users
                                                 </th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 99px;">
+                                                <th   >
                                                     1st Hopee
                                                 </th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 99px;">
+                                                <th   >
                                                     2nd Hopee
                                                 </th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 99px;">
+                                                <th   >
                                                     3rd Hopee
                                                 </th>
                                             </tr>

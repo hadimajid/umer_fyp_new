@@ -81,6 +81,17 @@
                 <div class="col-md-12">
                     <div id="result"></div>
                 </div>
+                <div class="col-md-12" style="display: none" id="heading">
+                    <h5>You can register in following saving wallet.</h5>
+                </div>
+                <div class="col-md-12" id="kameetis">
+
+                </div>
+                <div class="col-md-12 text-center">
+                    <ul id="kameeti-list" class="pagination">
+
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -160,9 +171,42 @@
                 $('#result').html(
                     "<p> Rs "+result+" is the amount you will be saving every month.</p>"
                 )
+                $('#kameeti-list').pagination({
+                    current: 1, // Current page number
+                    length: 12, // Data volume per page
+                    size: 5, // Display the number of buttons
+                    ajax: function(options, refresh, $target){
+                        $.ajax({
+                            url: '{{route('user.kameetiList')}}',
+                            type: "get",
+                            data:{
+                                page: options.current,
+                                length: options.length,
+                                amount:result
+                            },
+                            dataType: 'json'
+                        }).done(function(response){
+                            if(response.total>0){
+                                $('#heading').show();
+                            }else{
+                                $('#kameeti-list').hide()
+                            }
+                            $('#kameetis').html(response.view);
+                            refresh({
+                                total: response.total,
+                                length: response.length
+                            });
+
+                        }).fail(function(error){
+                            $('#kameetis').html('<li class="col-md-12 text-center"><strong style="font-size: 20px;">Some Error Has Occurred.</strong></li>')
+
+                        });
+                    }
+                });
                 $(this).hide()
             }
         })
+
     </script>
 
 @endsection

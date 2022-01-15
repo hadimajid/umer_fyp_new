@@ -39,16 +39,16 @@
                                         <table  class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info" id="notificaton-table">
                                             <thead>
                                             <tr role="row">
-                                                <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 166px;">
+                                                <th   >
                                                     Sr.No
                                                 </th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 219px;">
+                                                <th   >
                                                     Description
                                                 </th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 219px;">
+                                                <th   >
                                                     Time
                                                 </th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 219px;">
+                                                <th  >
 
                                                 </th>
 

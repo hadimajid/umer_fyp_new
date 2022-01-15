@@ -267,8 +267,16 @@ class UserDashboardController extends Controller
         if($request->page){
             $page=($request->page-1)*$limit;
         }
-        $kameetis=Kameeti::offset($page)->limit($limit)->get();
-        $total=Kameeti::all()->count();
+        $kameetis=Kameeti::where(function ($query) use ($request){
+            if($request->amount){
+                $query->where("amount","<=",intval($request->amount));
+            }
+        })->offset($page)->limit($limit)->get();
+        $total=Kameeti::where(function ($query) use ($request){
+            if($request->amount){
+                $query->where("amount","<=",$request->amount);
+            }
+        })->count();
 
         return Response::json(['view'=>view('frontend.kameeti-card',compact('kameetis'))->render(),'total'=>$total,'length'=>$limit]);
     }
