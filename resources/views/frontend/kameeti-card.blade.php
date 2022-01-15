@@ -13,7 +13,7 @@
         </div>
    @empty
        <div class="col-md-12">
-            No Saving Wallet Found!
+            No Kameetis Found!
        </div>
     @endforelse
 </div>

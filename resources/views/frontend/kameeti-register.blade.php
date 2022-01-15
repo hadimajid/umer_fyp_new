@@ -1,6 +1,6 @@
 @extends('frontend.layout.app')
 
-@section('title','Register Saving Wallet')
+@section('title','Register Kameeti')
 
 @section('content')
 
@@ -11,8 +11,8 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcumb-content text-center">
-                        <h2>Saving Wallet</h2>
-                        <h4 class="text-white">Register for saving wallet</h4>
+                        <h2>Kameeti</h2>
+                        <h4 class="text-white">Register your kameeti</h4>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <h4>
-                        Register Your saving wallet here!
+                        Register Your Kameeti Here!
                     </h4>
                     <h6>READ CAREFULLY!</h6>
                 </div>
@@ -58,7 +58,7 @@
                                     </button>
                                 </div>
                             @endif
-                            <h6 class="text-center font-weight-bold">Saving Wallet Register Form</h6>
+                            <h6 class="text-center font-weight-bold">Kameeti Register Form</h6>
                             <form action="{{route('user.registerKameeti',[$kameeti->id])}}" method="post" enctype="multipart/form-data" id="registerKameeti">
                                 @csrf
                                 @method('POST')

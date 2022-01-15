@@ -15,7 +15,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Add </h1>
+                        <h1>Add Kameeti</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -31,7 +31,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Add New </h3>
+                            <h3 class="card-title">Add New Kameeti</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -46,13 +46,13 @@
                                             </button>
                                         </div>
                                         @endif
-                                            <form action="{{route('admin.add')}}" method="POST">
+                                            <form action="{{route('admin.addKameeti')}}" method="POST">
                                                 @csrf
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="">
-                                                                 Name
+                                                                Kameeti Name
                                                             </label>
                                                             <input type="text" class="form-control" name="name" required>
                                                         @error('name')
@@ -63,7 +63,7 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="">
-                                                                 Duration
+                                                                Kameeti Duration
                                                             </label>
                                                             <input type="text" class="form-control" name="duration" id="duration" readonly="readonly" required>
                                                             @error('duration')
@@ -75,7 +75,7 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="">
-                                                                 Price
+                                                                Kameeti Price
                                                             </label>
                                                             <input type="number" class="form-control" name="price" id="price" required>
                                                             @error('price')
@@ -86,7 +86,7 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="">
-                                                                 Amount
+                                                                Kameeti Amount
                                                             </label>
                                                             <input type="number" class="form-control" name="amount" id="amount" required readonly>
                                                             @error('amount')

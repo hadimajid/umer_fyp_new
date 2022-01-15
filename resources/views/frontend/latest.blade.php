@@ -23,6 +23,43 @@
     <section class="fancy-about-us-area bg-gray">
         <div class="container">
             <div class="row">
+
+                <div class="col-12 col-md-4">
+                    <div class="single-top-feature">
+                        <h5><i class="fa fa-diamond" aria-hidden="true"></i> What other things HOPEE provides?</h5>
+                        <p>Hopee is a platform where you can win upto 4000% of your invested amount or get a refund of almost 79%. Besides this, hopee also provides a KAMETI service, Loan Service, Budgeting Calculator and Kameti calculator. </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="single-top-feature">
+                        <h5><i class="fa fa-diamond" aria-hidden="true"></i> What is loan Service?
+                        </h5>
+                        <p> Loan Service is the service provided by our hopee platform to help out the people in need of loan with no interest. We will charge 1.5% rent fee for giving out the loan which is not similar to interest as authenticated by Ulimahs too.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="single-top-feature">
+                        <h5><i class="fa fa-diamond" aria-hidden="true"></i>What does Kameti service do?
+                        </h5>
+                        <p> Kameti is the service which every one can avail. It is basically a type of savings wallet where you can submit your desired amount for the desired period of time. And by the end of that period you can get all your money back.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="single-top-feature">
+                        <h5><i class="fa fa-diamond" aria-hidden="true"></i>What does Kameti calculator do?
+
+                        </h5>
+                        <p>Kameti calulator helps you calculate the duration and money to be saved in the specific period of time for any specific item of your choice you want to buy. </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="single-top-feature">
+                        <h5><i class="fa fa-diamond" aria-hidden="true"></i>What does Budget calculator do?
+
+                        </h5>
+                        <p> Budget Calculator simply asks you about your monthly income and other expenses, then generates the amount you should be saving after all your expenditures and expenses etc.</p>
+                    </div>
+                </div>
                 <div class="col-md-8">
 
                     <div class="about-us-text">

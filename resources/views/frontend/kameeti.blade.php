@@ -1,6 +1,6 @@
 @extends('frontend.layout.app')
 
-@section('title','Saving Wallet')
+@section('title','Kameeti')
 
 @section('content')
 
@@ -11,8 +11,8 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcumb-content text-center">
-                        <h2>Saving Wallet</h2>
-                        <h4 class="text-white">Here you can view available Saving Wallets</h4>
+                        <h2>Kameeti</h2>
+                        <h4 class="text-white">Here you can view available kameetis</h4>
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong">
                             Kameeti Calculator
                         </button>
