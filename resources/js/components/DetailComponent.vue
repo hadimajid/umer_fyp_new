@@ -223,6 +223,7 @@
                 }).then(res => res.json())
                     .then(data => {
                         swal('Thank you!', 'Your Feedback has been added','success');
+                        location.reload();
                     }).catch(err => {
                     swal('Failed', 'You can\'t add more Feedback', 'error');
                 });

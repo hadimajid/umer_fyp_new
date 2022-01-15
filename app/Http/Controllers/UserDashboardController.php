@@ -396,7 +396,7 @@ class UserDashboardController extends Controller
             if($notification->kameeti->registered==2){
                 $type="rejected";
             }
-            $desc="Kameeti {$notification->kameeti->kameeti->name} is $type";
+            $desc="Kameeti {$notification->kameeti->kameeti->name} is $type please send 12 bank cheques for each month to following address House no 288 C-1 Johar Town,Lahore";
         }
         return view("dashboard.notification-details",compact('notification','desc','diff'));
     }

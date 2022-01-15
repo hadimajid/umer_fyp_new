@@ -18,9 +18,13 @@ class FeedbackController extends Controller
             'text' => 'required:string',
             'rating' => 'required:numeric',
         ]);
-
-        if (Feedback::where('user_id',$data['user'])->get()->first()){
-            return false;
+            $feedback=Feedback::where('user_id',$data['user'])->get()->first();
+        if ($feedback){
+            $feedback->date=Carbon::now()->timezone('pkt')->toDate();
+            $feedback->text=$data['text'];
+            $feedback->rating=$data['rating'];
+            $feedback->save();
+            return new FeedbackResource($feedback);
         } else {
             return new FeedbackResource(Feedback::create([
                 'user_id' => $data['user'],
