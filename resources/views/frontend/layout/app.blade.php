@@ -338,7 +338,7 @@
 {{--                                <input type="search" name="search" id="footer-search" placeholder="E-mail">--}}
 {{--                                <button type="submit">Subscribe</button>--}}
 {{--                            </form>--}}
-                            <div class="footer-social-widegt d-flex align-items-center">
+                            <h6>Follow us on</h6><div class="footer-social-widegt d-flex align-items-center">
                                 <a href="https://www.facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                                 <a href="https://www.twitter.com"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                                 <a href="https://www.google.com"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
