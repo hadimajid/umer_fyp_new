@@ -332,17 +332,17 @@
                     <!-- Footer Widget -->
                     <div class="col-4 offset-1">
                         <div class="single-footer-widget">
-                            <h6>Our Newsletter</h6>
-                            <p>Subscribe to our mailing list to get the updates to your email inbox.</p>
-                            <form action="#" method="get">
-                                <input type="search" name="search" id="footer-search" placeholder="E-mail">
-                                <button type="submit">Subscribe</button>
-                            </form>
+                            {{--                            <h6>Our Newsletter</h6>--}}
+{{--                            <p>Subscribe to our mailing list to get the updates to your email inbox.</p>--}}
+{{--                            <form action="#" method="get">--}}
+{{--                                <input type="search" name="search" id="footer-search" placeholder="E-mail">--}}
+{{--                                <button type="submit">Subscribe</button>--}}
+{{--                            </form>--}}
                             <div class="footer-social-widegt d-flex align-items-center">
-                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                <a href="https://www.facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="https://www.twitter.com"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="https://www.google.com"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                <a href="https://www.instagram.com"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
