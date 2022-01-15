@@ -40,7 +40,7 @@
                         </div>
                         <p>+92347-5500987 <br>Fawadlang@gmail.com</p>
                         <p>Muhammad Fawad Ur Rehman</p>
-                        <p>+9216-4643920 <br>iumersocial@gmail.com</p>
+                        <p>+92316-4643920 <br>iumersocial@gmail.com</p>
                         <p>Umer Farooq</p>
                     </div>
                     <!-- Follow Us -->
