@@ -365,7 +365,7 @@
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <div class="review-block-name"><h5 class="text-capitalize ">{{$feed->user->name}}</h5></div>
-                                            <div class="review-block-date">{{$feed->date}}<br/>{{$feed->created_at->diffForHumans()}}</div>
+                                            <div class="review-block-date">{{$feed->date}}<br/>{{$feed->updated_at->diffForHumans()}}</div>
                                         </div>
                                         <div class="col-sm-5">
                                             <div class="review-block-rate">
