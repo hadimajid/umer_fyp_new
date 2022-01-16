@@ -24,3 +24,5 @@
 <!-- summernote -->
 <link rel="stylesheet" href="{{asset('dashboard/plugins/summernote/summernote-bs4.css')}}">
 <link rel="stylesheet" href="{{asset('css/lc_lightbox.css')}}">
+<link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+

@@ -36,3 +36,11 @@
 <script src="{{asset('dashboard/dist/js/demo.js')}}"></script>
 <script src="{{asset('js/jquery-time-duration-picker.js')}}"></script>
 <script src="{{asset('js/lc_lightbox.lite.js')}}"></script>
+<script src="{{asset('dashboard/plugins/datatables/jquery.dataTables.js')}}" defer></script>
+<script>
+
+    $(document).ready(function () {
+        $(".dataTable").dataTable();
+        //
+    });
+</script>

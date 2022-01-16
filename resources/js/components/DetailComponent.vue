@@ -214,6 +214,10 @@
         },
         methods: {
             setRating() {
+                if(!this.text || !this.rating){
+                    swal('Failed', 'Please fill out rating', 'error');
+                    return;
+                }
                 fetch('/api/rating/new', {
                     method: 'post',
                     body: JSON.stringify({text:this.text,user:this.user,rating:this.rating }),
@@ -225,7 +229,7 @@
                         swal('Thank you!', 'Your Feedback has been added','success');
                         location.reload();
                     }).catch(err => {
-                    swal('Failed', 'You can\'t add more Feedback', 'error');
+                    swal('Failed', 'Some error has occurred!', 'error');
                 });
             },
             getRating(){

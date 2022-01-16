@@ -41,15 +41,7 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4"><div class="row">
-
-                                        <div class="col-sm-12 col-md-6">
-                                            <div id="example1_filter" class="dataTables_filter pull-right">
-                                                <label>Search:<input type="search" class="form-control form-control-sm" placeholder="Search Users" id="search" aria-controls="example1"></label>
-                                            </div>
-                                        </div>
-
-                                    </div>
+                                <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
@@ -105,15 +97,6 @@
                                                 @endforeach
                                                 </tbody>
                                             </table>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-12 col-md-12">
-                                            <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
-                                                <ul class="pagination">
-                                                    {{$users->links()}}
-                                                </ul>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>

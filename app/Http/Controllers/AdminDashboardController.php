@@ -48,11 +48,11 @@ class AdminDashboardController extends Controller
         return view('admin.dashboard.registration',compact('sets'));
     }
     public function activeUsers()   {
-        $users = User::has('sets')->paginate(10);
+        $users = User::has('sets')->get();
         return view('admin.dashboard.activeuser',compact('users'));
     }
     public function inactiveUsers()   {
-        $users = User::doesnthave('sets')->paginate(10);
+        $users = User::doesnthave('sets')->get();
         return view('admin.dashboard.inactiveuser',compact('users'));
     }
 
