@@ -67,7 +67,7 @@
             </section>        </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>Dashboard template by AdminLTE.io Developed by Fawad Lang. All Rights Reserved</strong>
+            <strong>All Rights Reserved</strong>
         </footer>
 
 @endsection
