@@ -402,8 +402,7 @@
                             <!-- Copywrite Text -->
                             <div class="copywrite-text">
                                 <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                    Copyright &copy;2020 All rights reserved By Fawad Lang| Edited by Fawad Lang Template by ColorLib
-                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                                    Copyright &copy;{{date('Y')}} All rights reserved                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                             </div>
                             <!-- Footer Nav -->
                             <div class="footer-nav">
