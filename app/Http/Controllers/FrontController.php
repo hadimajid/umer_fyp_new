@@ -70,7 +70,7 @@ class FrontController extends Controller
             return redirect()->back()->with("success","We will contact you shortly.");
 
         }catch (\Exception $err){
-//            dd($err);
+            dd($err);
             return redirect()->back()->with("danger","Some error has occurred");
 
         }
